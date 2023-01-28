@@ -4,6 +4,7 @@ import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:myapp/Screens/asian.dart';
+import 'package:myapp/settings.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,12 +14,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int currentPage = 0;
+  pagetransition(index) {
+    setState(() {
+      currentPage = index;
+    });
+    if (currentPage==0){
+      Navigator.of(context).pushNamed('home');
+    }
+    else{
+      Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const settings()),
+  );
+    }
+    
+  }
+
   @override
   Widget build(BuildContext context) {
-    int currentPage;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(0, 0, 0, 1),
+          backgroundColor: Color.fromARGB(244, 141, 41, 2),
           title: Text('Foodies'),
         ),
         body: Container(
@@ -30,7 +47,8 @@ class _HomeState extends State<Home> {
                 children: [
                   ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(Colors.orange),
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.orange),
                           fixedSize: MaterialStateProperty.all(Size(120, 80))),
                       onPressed: (() {
                         Navigator.of(context).pushNamed('asian');
@@ -38,10 +56,10 @@ class _HomeState extends State<Home> {
                       child: Text('Asian')),
                   ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(Colors.green),
-                          fixedSize: MaterialStateProperty.all(Size(120, 80)),
-                          
-                          ),
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.green),
+                        fixedSize: MaterialStateProperty.all(Size(120, 80)),
+                      ),
                       onPressed: (() {
                         Navigator.of(context).pushNamed('breakfast');
                       }),
@@ -55,7 +73,8 @@ class _HomeState extends State<Home> {
                       child: Text('Exotic')),
                   ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(Colors.grey),
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.grey),
                           fixedSize: MaterialStateProperty.all(Size(120, 80))),
                       onPressed: (() {
                         Navigator.of(context).pushNamed('german');
@@ -68,7 +87,8 @@ class _HomeState extends State<Home> {
                 children: [
                   ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(Colors.red),
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.red),
                           fixedSize: MaterialStateProperty.all(Size(120, 80))),
                       onPressed: (() {
                         Navigator.of(context).pushNamed('hamburgers');
@@ -76,7 +96,8 @@ class _HomeState extends State<Home> {
                       child: Text('Hambegers')),
                   ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(Colors.purple),
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.purple),
                           fixedSize: MaterialStateProperty.all(Size(120, 80))),
                       onPressed: (() {
                         Navigator.of(context).pushNamed('itallian');
@@ -84,7 +105,8 @@ class _HomeState extends State<Home> {
                       child: Text('Italian')),
                   ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(Colors.green),
+                          backgroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.green),
                           fixedSize: MaterialStateProperty.all(Size(120, 80))),
                       onPressed: (() {
                         Navigator.of(context).pushNamed('light');
@@ -115,7 +137,7 @@ class _HomeState extends State<Home> {
             ),
             TabData(icon: Icons.settings),
           ],
-          onTabChangedListener: (index) => setState(() => currentPage = index),
+          onTabChangedListener: (index) => pagetransition(index),
         ));
   }
 }

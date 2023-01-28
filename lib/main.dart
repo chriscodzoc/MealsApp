@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:myapp/Screens/asian.dart';
 import 'package:myapp/Screens/breakfast.dart';
 import 'package:myapp/home.dart';
+import 'package:myapp/settings.dart';
 
 void main() {
   runApp(Myapp());
@@ -21,6 +22,9 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       home: Mainscaf(),
       routes: {
+        'setings':(context) {
+          return settings();
+        },
         'asian': (context) {
           return asian();
         },
