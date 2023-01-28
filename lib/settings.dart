@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class settings extends StatefulWidget {
-  const settings({super.key});
+class Settings extends StatefulWidget {
+ const Settings({Key? key}) : super(key: key);
 
   @override
-  State<settings> createState() => _settingsState();
+  State<Settings> createState() => _SettingsState();
 }
 
-class _settingsState extends State<settings> {
+class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:Text("Settings"),
-      )
-    );
+    return Scaffold();
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:myapp/Screens/asian.dart';
+import 'package:myapp/Screens/bottonnav.dart';
 import 'package:myapp/Screens/breakfast.dart';
 import 'package:myapp/home.dart';
 import 'package:myapp/settings.dart';
@@ -20,14 +21,10 @@ class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Mainscaf(),
+      initialRoute: '/',
       routes: {
-        'setings':(context) {
-          return settings();
-        },
-        'asian': (context) {
-          return asian();
-        },
+        '/': (context) => const BottomNav(),
+        'asian': (context) => asian(),
         'home': (context) {
           return Home();
         },
@@ -35,22 +32,6 @@ class _MyappState extends State<Myapp> {
           return breakfast();
         }
       },
-    );
-  }
-}
-
-class Mainscaf extends StatefulWidget {
-  const Mainscaf({super.key});
-
-  @override
-  State<Mainscaf> createState() => _MainscafState();
-}
-
-class _MainscafState extends State<Mainscaf> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Home(),
     );
   }
 }

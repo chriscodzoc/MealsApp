@@ -14,22 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int currentPage = 0;
-  pagetransition(index) {
-    setState(() {
-      currentPage = index;
-    });
-    if (currentPage==0){
-      Navigator.of(context).pushNamed('home');
-    }
-    else{
-      Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const settings()),
-  );
-    }
-    
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -124,20 +109,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        bottomNavigationBar: CircleBottomNavigationBar(
-          initialSelection: 0,
-          circleColor: Color.fromARGB(255, 255, 0, 0),
-          activeIconColor: Colors.white,
-          inactiveIconColor: Colors.grey,
-          tabs: [
-            TabData(
-              icon: Icons.home,
-              iconSize: 25, // Optional
-              fontSize: 12, // Optional
-            ),
-            TabData(icon: Icons.settings),
-          ],
-          onTabChangedListener: (index) => pagetransition(index),
-        ));
+        
+        );
   }
 }
